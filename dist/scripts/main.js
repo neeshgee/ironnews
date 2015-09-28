@@ -24,31 +24,30 @@ _.templateSetting = {
   interpolate : /\{\{(.+?)\}\}/g
 };
 
-var articles = Backbone.Model.extend ({
+var Article = Backbone.Model.extend ({
   url: function() {
-    return 'https://iron-news.herokuapp.com/articles';
-
-  },
-  articlesUrl: function() {
-    return this.url() + '{?page}';
-    // console.log(this);
-  },
-
-  singleArticle: function () {
-    return this.url() + '/{id}';
-  },
-
-
-  fetchArticle: function() {
-    return $.get(this.articlesUrl());
-  },
-
-  fetchSingle: function () {
-    return $.get(this.singleArticle());
-
+    return 'https://iron-news.herokuapp.com/articles/' + this.get('id');
   }
 });
 
+var ArticleCollection = Backbone.Collection.extend({
+  url: 'https://iron-news.herokuapp.com/articles',
+  model: Article
+});
+
+// var c = new ArticleCollection();
+// c.fethc().then)function () {
+//   _.each(c.models, function (article) {
+//     console.log;
+//
+//   })
+//
+// }
+
+
+
+
+// var fgfhj = new Article().fetchArticleList();
 
 var ArticleView = Backbone.View.extend({
   template: _.template($('#articleTemplate').text()),
