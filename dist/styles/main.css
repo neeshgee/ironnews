@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  background-color: #7E9EBF;
+}
+
+header {
+  background-color: #657E99;
+
+}
+
+ul {
+  padding-left: 175px;
+
+
+}
+
+li {
+  display: inline;
+}
+
+h4 {
+  line-height: inherit;
+
+}
