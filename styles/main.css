@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro|Roboto+Slab);
 .container {
   display: flex;
   background-color: #7E9EBF;
@@ -21,15 +21,19 @@ li {
   display: inline;
 }
 
-h4 {
-  line-height: inherit;
+span {
+  position: absolute;
+  top: 10;
+  padding-left: 10px;
+  font-family: 'Roboto Slab', sans-serif;
+  font-size: 26px;
 
 }
 
 .article {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Roboto Slab', sans-serif;
   color: black;
-  font-size: 18px;
+  font-size: 26px;
   padding-bottom: 10px;
   display: list-item;
 }
@@ -39,7 +43,7 @@ h4 {
 }
 
 nav a {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Roboto Slab', sans-serif;
   font-size: 18px;
   color: black;
   text-decoration: none;
@@ -55,14 +59,29 @@ nav a:visited {
 
 ol a {
   color: black;
-  text-decoration: none;
+  text-decoration: underline;
+
 }
 
 ol a:hover {
-  font-size: 14px;
+  background-color: #657E99;
 }
 
 .comments {
+  font-family: 'Source Sans Pro', sans-serif;
+  color: black;
   font-weight: bolder;
   padding-bottom: 20px;
+}
+
+.title {
+  padding-bottom: 3px;
+}
+
+.other {
+  padding-bottom: 10px;
+}
+
+.navList {
+  text-align: center;
 }
