@@ -14,19 +14,32 @@
     <nav>
       <ul class="navList">
         <li class="home"><a href="#">home |</a></li>
-        <li>show |</li>
-        <li>ask |</li>
-        <li>jobs |</li>
-        <li>submit</li>
+        <li><a href="-">show |</a></li>
+        <li><a href="-">ask |</a></li>
+        <li><a href="-">jobs |</a></li>
+        <li><a href="-">submit</a></li>
       </ul>
     </nav>
   </header>
   <div class="container">
-
-
   </div>
 
+  <script type="text/template" id="articleTemplate">
+   <ol class="article">
+    <li><a href="{{ url }}">{{ title }}</a></li>
+    <li class>{{ created_at }}</li>
+    <li class>{{ comments_count }} <a href="#{{ id }}/comments">comments</a></li>
+    <li class>By: {{ submitter }}</li>
+  </ol>
+  </script>
 
+  <script type="text/template" id="commentsTemplate">
+    <ul class="comments">
+      <li>{{ name }} says:</li>
+      <li>"{{ message }}"</li>
+      <li>{{ created_at }}</li>
+    </ul>
+  </script>
 
   <script src="scripts/router.js"></script>
   <script src="scripts/main.js"></script>

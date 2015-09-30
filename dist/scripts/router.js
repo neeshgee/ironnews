@@ -1,40 +1,31 @@
 var Router = Backbone.Router.extend({
   routes: {
     '': 'home',
-    'comments/:id': 'comments'
+    ':id/comments': 'comments'
   },
 
   home: function () {
-    $.ajax('home.html').then(function (page) {
-    $('.container').html(page)
-    var collection = new ArticleCollection();
-    collection.fetch().then(function () {
-      _.each(collection.models, function (article) {
-        $('ul.articleList').append(
-          '<li><a href="#' + article.get('id') + '/comments">' + article.get('title') + '</a></li>');
-   });
- });
-});
-},
-
- comments: function (article_id) {
-   $.ajax('comments.html').then(function (page) {
-     $('.container').html(page)
-    //  console.log(page)
-    var article = new Article({id: article_id});
-    $('ul.').empty();
-    article.fetch().then(function () {
-      _.each(article.get('comments'), function (comment) {
-        $('ul').append('<li>' + comment.message + '</li>');
-      });
+    var self = this;
+    this.articlecollection.fetch().then(function () {
+      $('.container').html(self.pageView.render());
     });
+  },
+
+ comments: function (articleId) {
+  var article = new Article({ id: articleId});
+  article.fetch().then(function () {
+    var view = new CommentsView({model: article});
+    $('.container').html(view.render());
   });
 },
+
  initialize: function() {
-  Backbone.history.start();
+   this.articlecollection = new ArticleCollection();
+   this.pageView = new pageView({collection: this.articlecollection});
+   Backbone.history.start();
 }
 });
 
 $(function(){
-var router = new Router();
+  var router = new Router();
 })
